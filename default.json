@@ -1,0 +1,123 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "description": "Shared Renovate preset for the dnd-mapp repositories.",
+    "extends": [
+        "config:recommended",
+        "helpers:pinGitHubActionDigests",
+        ":semanticCommits",
+        ":semanticCommitScopeDisabled"
+    ],
+    "timezone": "Europe/Amsterdam",
+    "schedule": ["* 0-5 * * 1"],
+    "platformCommit": "enabled",
+    "rangeStrategy": "bump",
+    "minimumReleaseAge": "3 days",
+    "internalChecksFilter": "strict",
+    "automergeType": "pr",
+    "automergeStrategy": "merge-commit",
+    "platformAutomerge": false,
+    "lockFileMaintenance": {
+        "enabled": true,
+        "schedule": ["* 0-5 1 * *"],
+        "automerge": true,
+        "semanticCommitType": "build"
+    },
+    "customManagers": [
+        {
+            "description": "Update the Node.js and pnpm versions in devEngines, which the npm manager does not update yet.",
+            "customType": "jsonata",
+            "fileFormat": "json",
+            "managerFilePatterns": ["/(^|/)package\\.json$/"],
+            "matchStrings": [
+                "devEngines.runtime[name = 'node'].{ 'depName': 'node', 'currentValue': version, 'datasource': 'node-version', 'versioning': 'node', 'depType': 'devEngines' }",
+                "devEngines.packageManager[name = 'pnpm'].{ 'depName': 'pnpm', 'currentValue': version, 'datasource': 'npm', 'versioning': 'npm', 'depType': 'devEngines' }"
+            ]
+        }
+    ],
+    "packageRules": [
+        {
+            "description": "Use the build commit type for dependency updates.",
+            "matchPackageNames": ["*"],
+            "semanticCommitType": "build"
+        },
+        {
+            "description": "Use the ci commit type for GitHub Actions updates.",
+            "matchManagers": ["github-actions"],
+            "semanticCommitType": "ci"
+        },
+        {
+            "description": "Widen peer dependency ranges instead of raising their minimum.",
+            "matchDepTypes": ["peerDependencies"],
+            "rangeStrategy": "widen"
+        },
+        {
+            "description": "Change the engines range only when the new version falls outside it.",
+            "matchDepTypes": ["engines"],
+            "rangeStrategy": "replace"
+        },
+        {
+            "description": "Group non-breaking npm updates.",
+            "matchManagers": ["npm"],
+            "matchUpdateTypes": ["minor", "patch", "pin", "pinDigest", "digest"],
+            "matchJsonata": ["$not(isBreaking = true and updateType = 'minor')"],
+            "groupName": "npm packages",
+            "groupSlug": "npm"
+        },
+        {
+            "description": "Group non-breaking GitHub Actions updates.",
+            "matchManagers": ["github-actions"],
+            "matchUpdateTypes": ["minor", "patch", "pin", "pinDigest", "digest"],
+            "matchJsonata": ["$not(isBreaking = true and updateType = 'minor')"],
+            "groupName": "GitHub Actions",
+            "groupSlug": "github-actions"
+        },
+        {
+            "description": "Group non-breaking Docker updates.",
+            "matchCategories": ["docker"],
+            "matchUpdateTypes": ["minor", "patch", "pin", "pinDigest", "digest"],
+            "matchJsonata": ["$not(isBreaking = true and updateType = 'minor')"],
+            "groupName": "Docker images",
+            "groupSlug": "docker"
+        },
+        {
+            "description": "Group the Node.js runtime, the engines range, and the Node.js types, so they move together.",
+            "matchDatasources": ["node-version", "npm"],
+            "matchPackageNames": ["node", "@types/node"],
+            "groupName": "Node.js",
+            "groupSlug": "node"
+        },
+        {
+            "description": "Group the package manager.",
+            "matchPackageNames": ["pnpm"],
+            "groupName": "pnpm",
+            "groupSlug": "package-manager"
+        },
+        {
+            "description": "Group non-breaking updates of dnd-mapp packages, and apply them at any time.",
+            "matchManagers": ["npm"],
+            "matchPackageNames": ["@dnd-mapp/*"],
+            "matchUpdateTypes": ["minor", "patch", "pin", "pinDigest", "digest"],
+            "matchJsonata": ["$not(isBreaking = true and updateType = 'minor')"],
+            "groupName": "dnd-mapp packages",
+            "groupSlug": "dnd-mapp",
+            "schedule": ["at any time"]
+        },
+        {
+            "description": "Apply updates of dnd-mapp packages, actions, and presets without a release age.",
+            "matchPackageNames": ["@dnd-mapp/*", "dnd-mapp/*"],
+            "minimumReleaseAge": null
+        },
+        {
+            "description": "Apply updates of the shared Renovate preset at any time.",
+            "matchManagers": ["renovate-config"],
+            "matchPackageNames": ["dnd-mapp/renovate-config"],
+            "schedule": ["at any time"]
+        },
+        {
+            "description": "Merge non-breaking updates automatically once CI passes.",
+            "matchUpdateTypes": ["minor", "patch", "pin", "pinDigest", "digest"],
+            "matchJsonata": ["$not(isBreaking = true and updateType = 'minor')"],
+            "automerge": true
+        }
+    ]
+}
