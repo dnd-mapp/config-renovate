@@ -3,7 +3,7 @@
 [![push main](https://github.com/dnd-mapp/renovate-config/actions/workflows/push-main.yaml/badge.svg?branch=main)](https://github.com/dnd-mapp/renovate-config/actions/workflows/push-main.yaml)
 [![license](https://img.shields.io/github/license/dnd-mapp/renovate-config)](LICENSE)
 
-Shared [Renovate](https://docs.renovatebot.com/) preset for the D&D Mapp repositories.
+Shared [Renovate](https://docs.renovatebot.com/) preset that groups updates weekly and merges the non-breaking ones automatically.
 
 Every D&D Mapp repository extends this preset, so they all get the same update schedule, groups, and automerge policy. Renovate opens at most one pull request per environment each week, and merges minor and patch updates on its own once CI passes. Major updates wait for a maintainer.
 

@@ -1,6 +1,6 @@
 {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "description": "Shared Renovate preset for the dnd-mapp repositories.",
+    "description": "Shared Renovate preset that groups updates weekly and merges the non-breaking ones automatically.",
     "extends": [
         "config:recommended",
         "helpers:pinGitHubActionDigests",
