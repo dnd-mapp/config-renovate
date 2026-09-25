@@ -20,6 +20,7 @@ allowBuilds:
   lefthook: true
   protobufjs: false
   re2: true
+sideEffectsCache: false
 
 # Other Settings
 catalogMode: "strict"
