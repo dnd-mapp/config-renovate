@@ -2,7 +2,7 @@
 
 ## Project
 
-This repository is the shared Renovate preset `dnd-mapp/renovate-config`. The preset lives in `default.json`, and every D&D Mapp repository extends it by tag, as `github>dnd-mapp/renovate-config#vX.Y.Z`.
+This repository is the shared Renovate preset `dnd-mapp/renovate-config`. The preset lives in `default.json`, and every D&D Mapp repository extends it by tag, as `github>dnd-mapp/renovate-config#vX.Y.Z`. Read [CONTRIBUTING.md](CONTRIBUTING.md) for the layout, the checks, the release steps, and the commit and branch conventions.
 
 - Give every entry in `packageRules` and `customManagers` a `description` that states what the rule does.
 - Consumers merge minor and patch releases of the preset without review. Release a change as major when a maintainer should see its effect first, as `CONTRIBUTING.md` lists under "Changelog and versioning".
