@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+### Added
+
+- A rule that holds TypeScript below 7. TypeScript 7 drops the stable compiler API, which `typescript-eslint` and `prettier-plugin-organize-imports` need. Renovate closes the open TypeScript 7 pull requests once repositories use this release.
+
 ## [1.0.0] - 2026-09-25
 
 ### Added

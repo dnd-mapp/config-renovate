@@ -80,6 +80,7 @@ Renovate commits through the GitHub API, so GitHub signs every commit. Commit me
 - Ranges keep their operator and move their lower bound, so `~1.2.3` becomes `~1.2.4`.
 - Peer dependency ranges widen instead, so `^6` becomes `^6 || ^7`.
 - The `engines` range changes only when the new version falls outside it.
+- TypeScript stays below 7. TypeScript 7 drops the stable compiler API, which `typescript-eslint` and `prettier-plugin-organize-imports` need. Lift the hold once both support TypeScript 7.
 
 ## Node.js
 
