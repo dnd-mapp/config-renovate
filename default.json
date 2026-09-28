@@ -56,6 +56,11 @@
             "rangeStrategy": "replace"
         },
         {
+            "description": "Hold TypeScript below 7 until typescript-eslint and prettier-plugin-organize-imports support it.",
+            "matchPackageNames": ["typescript"],
+            "allowedVersions": "<7"
+        },
+        {
             "description": "Group non-breaking npm updates.",
             "matchManagers": ["npm"],
             "matchUpdateTypes": ["minor", "patch", "pin", "pinDigest", "digest"],
