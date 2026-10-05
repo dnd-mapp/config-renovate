@@ -1,19 +1,19 @@
 {
   "$schema": "https://www.schemastore.org/package.json",
-  "name": "@dnd-mapp/renovate-config",
+  "name": "@dnd-mapp/config-renovate",
   "description": "Shared Renovate preset that groups updates weekly and merges the non-breaking ones automatically.",
   "version": "1.1.0",
   "private": true,
   "license": "MIT",
   "type": "module",
   "author": "D&D Mapp",
-  "homepage": "https://github.com/dnd-mapp/renovate-config#readme",
+  "homepage": "https://github.com/dnd-mapp/config-renovate#readme",
   "bugs": {
-    "url": "https://github.com/dnd-mapp/renovate-config/issues"
+    "url": "https://github.com/dnd-mapp/config-renovate/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dnd-mapp/renovate-config.git"
+    "url": "git+https://github.com/dnd-mapp/config-renovate.git"
   },
   "scripts": {
     "format": "prettier -w .",

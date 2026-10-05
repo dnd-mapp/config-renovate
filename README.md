@@ -1,7 +1,7 @@
-# dnd-mapp/renovate-config
+# dnd-mapp/config-renovate
 
-[![push main](https://github.com/dnd-mapp/renovate-config/actions/workflows/push-main.yaml/badge.svg?branch=main)](https://github.com/dnd-mapp/renovate-config/actions/workflows/push-main.yaml)
-[![license](https://img.shields.io/github/license/dnd-mapp/renovate-config)](LICENSE)
+[![push main](https://github.com/dnd-mapp/config-renovate/actions/workflows/push-main.yaml/badge.svg?branch=main)](https://github.com/dnd-mapp/config-renovate/actions/workflows/push-main.yaml)
+[![license](https://img.shields.io/github/license/dnd-mapp/config-renovate)](LICENSE)
 
 Shared [Renovate](https://docs.renovatebot.com/) preset that groups updates weekly and merges the non-breaking ones automatically.
 
@@ -14,7 +14,7 @@ Add a `renovate.json` to the root of the repository that extends a released tag 
 ```json
 {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "extends": ["github>dnd-mapp/renovate-config#v1.0.0"]
+    "extends": ["github>dnd-mapp/config-renovate#v2.0.0"]
 }
 ```
 

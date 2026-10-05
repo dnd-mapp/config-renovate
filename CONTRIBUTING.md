@@ -1,12 +1,12 @@
 # Contributing
 
-Thank you for your interest in contributing to `dnd-mapp/renovate-config`.
+Thank you for your interest in contributing to `dnd-mapp/config-renovate`.
 
 This preset decides which dependency updates every D&D Mapp repository gets, and which of them merge without review. A mistake here spreads to all of them at once, so please keep changes small and deliberate.
 
 ## Before you start
 
-Open an [issue](https://github.com/dnd-mapp/renovate-config/issues) to discuss any change beyond a typo fix before you send a pull request. This avoids work on changes that do not fit the goals of the preset.
+Open an [issue](https://github.com/dnd-mapp/config-renovate/issues) to discuss any change beyond a typo fix before you send a pull request. This avoids work on changes that do not fit the goals of the preset.
 
 ## Development setup
 
@@ -39,7 +39,7 @@ The pre-commit hooks only check files. Run `pnpm run format` to fix formatting i
 
 | Path                             | Purpose                                                                                     |
 |:---------------------------------|:--------------------------------------------------------------------------------------------|
-| `default.json`                   | The preset that consumers extend as `github>dnd-mapp/renovate-config#vX.Y.Z`                |
+| `default.json`                   | The preset that consumers extend as `github>dnd-mapp/config-renovate#vX.Y.Z`                |
 | `renovate.json`                  | The Renovate config of this repository, which extends a released tag of the preset          |
 | `.github/actions/ci/action.yaml` | The checks that the pull request, push, and release workflows run                           |
 | `.github/workflows/release.yaml` | Verifies a release tag with `dnd-mapp/action-verify-release` and creates the GitHub Release |
