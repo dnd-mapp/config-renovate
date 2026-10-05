@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+### Fixed
+
+- Lock file maintenance pull requests merge automatically again. Renovate treats an update without a release date as too young, and a refreshed lock file has none, so the `renovate/stability-days` check stayed pending forever. Lock file maintenance now skips the release age. This is a breaking change, because it changes the release age and lets more updates merge automatically. Each repository must set `minimumReleaseAge` in `pnpm-workspace.yaml`, which keeps releases younger than three days out of the lock file.
+
 ## [1.1.0] - 2026-09-28
 
 ### Added

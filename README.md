@@ -26,6 +26,7 @@ Renovate keeps the tag up to date. Minor and patch releases of the preset merge 
 - CI runs on `pull_request`, and the ruleset of the default branch requires it as a status check. Renovate merges only once that check passes.
 - The ruleset allows merge commits, because Renovate merges with a merge commit.
 - The rule that requires an approval sits in a ruleset of its own, with the Renovate app as a bypass actor for pull requests only. See [Rulesets](#rulesets).
+- `pnpm-workspace.yaml` sets `minimumReleaseAge` to three days (`4320` minutes), because lock file maintenance relies on pnpm to hold back new releases. See [Schedule](#schedule).
 
 ## Schedule
 
@@ -39,6 +40,8 @@ All times are in `Europe/Amsterdam`.
 | Updates of this preset                           | At any time                                     |
 
 A new release must be at least three days old before Renovate proposes it. Packages, actions, and presets from D&D Mapp are exempt, so a new release of a shared config reaches the other repositories right away. D&D Mapp actions still follow the Monday schedule with the other GitHub Actions.
+
+Lock file maintenance is exempt as well. A refreshed lock file carries no release dates, so Renovate would hold its pull request forever. The `minimumReleaseAge` setting of pnpm in `pnpm-workspace.yaml` still keeps releases younger than three days out of the lock file.
 
 The [Dependency Dashboard](https://docs.renovatebot.com/key-concepts/dashboard/) issue lists every pending update. Tick an update there to have Renovate open its pull request outside the schedule.
 
