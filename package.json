@@ -2,7 +2,7 @@
   "$schema": "https://www.schemastore.org/package.json",
   "name": "@dnd-mapp/config-renovate",
   "description": "Shared Renovate preset that groups updates weekly and merges the non-breaking ones automatically.",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "private": true,
   "license": "MIT",
   "type": "module",
