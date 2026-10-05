@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+## [2.0.0] - 2026-10-05
+
 ### Changed
 
 - The repository is renamed from `dnd-mapp/renovate-config` to `dnd-mapp/config-renovate`, to match the other shared config repositories. This is a breaking change, because the rule that applies preset updates at any time now matches only the new name. Change `extends` in `renovate.json` to `github>dnd-mapp/config-renovate#v2.0.0` by hand, since Renovate never renames a preset.
@@ -27,6 +29,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - The preset. It schedules updates weekly on Monday morning, groups the non-breaking updates per environment, and merges them once CI passes. Breaking updates get their own pull request and wait for an approval.
 - A custom manager that updates the Node.js and pnpm versions in `devEngines`.
 
-[Unreleased]: https://github.com/dnd-mapp/config-renovate/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/dnd-mapp/config-renovate/compare/v2.0.0...HEAD
+[2.0.0]: https://github.com/dnd-mapp/config-renovate/releases/tag/v2.0.0
 [1.1.0]: https://github.com/dnd-mapp/config-renovate/releases/tag/v1.1.0
 [1.0.0]: https://github.com/dnd-mapp/config-renovate/releases/tag/v1.0.0
