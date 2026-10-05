@@ -116,7 +116,7 @@
         {
             "description": "Apply updates of the shared Renovate preset at any time.",
             "matchManagers": ["renovate-config"],
-            "matchPackageNames": ["dnd-mapp/renovate-config"],
+            "matchPackageNames": ["dnd-mapp/config-renovate"],
             "schedule": ["at any time"]
         },
         {

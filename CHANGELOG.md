@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+### Changed
+
+- The repository is renamed from `dnd-mapp/renovate-config` to `dnd-mapp/config-renovate`, to match the other shared config repositories. This is a breaking change, because the rule that applies preset updates at any time now matches only the new name. Change `extends` in `renovate.json` to `github>dnd-mapp/config-renovate#v2.0.0` by hand, since Renovate never renames a preset.
+
 ### Fixed
 
 - Lock file maintenance pull requests merge automatically again. Renovate treats an update without a release date as too young, and a refreshed lock file has none, so the `renovate/stability-days` check stayed pending forever. Lock file maintenance now skips the release age. This is a breaking change, because it changes the release age and lets more updates merge automatically. Each repository must set `minimumReleaseAge` in `pnpm-workspace.yaml`, which keeps releases younger than three days out of the lock file.
@@ -23,6 +27,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - The preset. It schedules updates weekly on Monday morning, groups the non-breaking updates per environment, and merges them once CI passes. Breaking updates get their own pull request and wait for an approval.
 - A custom manager that updates the Node.js and pnpm versions in `devEngines`.
 
-[Unreleased]: https://github.com/dnd-mapp/renovate-config/compare/v1.1.0...HEAD
-[1.1.0]: https://github.com/dnd-mapp/renovate-config/releases/tag/v1.1.0
-[1.0.0]: https://github.com/dnd-mapp/renovate-config/releases/tag/v1.0.0
+[Unreleased]: https://github.com/dnd-mapp/config-renovate/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/dnd-mapp/config-renovate/releases/tag/v1.1.0
+[1.0.0]: https://github.com/dnd-mapp/config-renovate/releases/tag/v1.0.0
