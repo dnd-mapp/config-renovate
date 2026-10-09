@@ -113,7 +113,7 @@ Notable changes for consumers of this preset are listed in the [changelog](CHANG
 
 ## Contributing
 
-Contributions are welcome. See the [contributing guide](CONTRIBUTING.md) for details.
+Read the [shared contributing guide](https://github.com/dnd-mapp/.github/blob/main/CONTRIBUTING.md) for how to take part, and the [contributing guide of this repository](https://github.com/dnd-mapp/config-renovate/blob/main/docs/contributing/README.md) for its details.
 
 ## License
 
